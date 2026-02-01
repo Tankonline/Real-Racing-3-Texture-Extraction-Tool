@@ -1,185 +1,268 @@
-# 🚗 RR3 Texture Tools
+# RR3 Texture Tools
 
-RR3 Texture Tools is a complete toolkit for extracting, converting, editing, and rebuilding **Real Racing 3** textures into universal assets for Android, iOS, and PC.
+An all-in-one toolkit for extracting, editing, converting, and repacking Real Racing 3 texture assets.
 
-It provides automated `.z` decompression, format conversion, batch processing, and universal export using industry-standard tools.
+This tool allows you to:
+- Extract `.z` compressed assets
+- Convert textures to PNG
+- Edit textures
+- Rebuild game-ready files
+- Export universal assets for Android and PC
+
+Designed for Windows users.
+
 
 ---
 
-## ✨ Features
+## Features
 
-- ✅ Remove `.z` compression (single & batch)
-- ✅ Support for DDS, ETC, and PVR formats
-- ✅ PNG master workflow for safe editing
-- ✅ Universal asset export (Android / iOS / PC)
-- ✅ Batch extraction & batch conversion
-- ✅ Organized folder structure
-- ✅ Beginner-friendly documentation
+✔ Extract `.z` compressed game files  
+✔ Convert DDS / PVR textures to PNG  
+✔ Edit textures easily  
+✔ Repack PNG → DDS → ZLIB  
+✔ Generate Android & PC universal assets  
+✔ Batch processing support  
+✔ Automated tools using `.bat` scripts  
 
 
-## ⚙️ Requirements
+---
+
+## Supported Platforms
+
+| Platform | Status |
+|----------|---------|
+| Android  | Supported (ETC2) |
+| PC       | Supported (BC3) |
+| iOS      | Experimental / Limited |
+
+
+iOS uses PVRTC/PVR formats and may require manual conversion.
+
+
+---
+
+## Folder Overview
+
+See `Directory.txt` for the full project structure.
+
+Main working folders:
+
+- `Run_tool/` → All main batch files
+- `PNG_Universal/` → Put editable PNG files here
+- `Converted to .z assets/` → Final game-ready files
+- `Tools/` → Required third-party software
+- `universal_assets/` → Exported platform textures
+
+
+---
+
+## Requirements
+
+Before using this tool, make sure you have:
 
 - Windows 10 / 11
 - Python 3.10+
+- AMD Compressonator CLI
 - Noesis
-- AMD Compressonator
-- PVRTexTool
+- PVRTexTool CLI (optional, for iOS)
 
-All required tools are included in the `Tools` folder.
+
+All required tools should be placed inside the `Tools/` folder.
+
 
 ---
 
-## 🚀 Basic Workflow
+## Setup
 
-### 1️⃣ Remove `.z` Compression
+1. Download or clone this repository
+2. Extract to any folder
+3. Verify tools are inside `Tools/`
+4. Install Python (enable "Add to PATH")
+5. Open CMD in project folder
+6. Test with one file first
+
+
+---
+
+## Usage Guide
+
+### 1. Extract Game Files
 
 Use:
 
 Run_tool\run.bat
 
 
-Or for multiple files:
+or
 
 Run_tool\batch_extraction.bat
 
 
-This removes `.z` compression from files.
+This removes `.z` compression.
+
 
 ---
 
-### 2️⃣ Convert to PNG (Master Asset)
+### 2. Convert to PNG
 
-Open extracted files using:
+Use Noesis or PVRTexTool to export extracted files to PNG.
 
-- Noesis
-- PVRTexTool
-- Compressonator
+Place edited PNG files into:
 
-Export them as PNG.
-
-Save to:
-
-universal_assets\master_png\
+Run_tool\PNG_Universal\
 
 
-⚠️ This is your MASTER file. Never delete it.
 
 ---
 
-### 3️⃣ Edit Textures (Optional)
-
-Use Paint.NET or similar editors to:
-
-- Fix colors
-- Adjust alpha
-- Improve quality
-
-Save again as PNG.
-
----
-
-### 4️⃣ Universal Export
+### 3. Export Universal Assets
 
 Run:
 
-Run_tool\universal_export.bat
+Run_tool\export_universal.bat
 
 
-This automatically creates:
+This creates:
 
-| Platform | Format |
-|----------|---------|
-| Android  | ETC2 |
-| iOS      | ASTC |
-| PC       | BC3 |
+- Android → ETC2
+- PC → BC3
 
-Files are placed into:
+Output goes to:
 
-universal_assets\android
-universal_assets\ios
-universal_assets\pc\
+universal_assets\
+
 
 
 ---
 
-## 📦 Universal Asset System
+### 4. Convert PNG to Game-Ready Files
 
-Each texture follows this system:
+Run:
 
-PNG (Master)
-↓
-Android (ETC2)
-iOS (ASTC)
-PC (BC3)
+Run_tool\png_to_game_ready.bat
 
 
-Example:
+This converts:
 
-car_diffuse.png ← Master
-car_diffuse_etc2.dds ← Android
-car_diffuse_astc.ktx ← iOS
-car_diffuse_bc3.dds ← PC
+PNG → DDS → ZLIB
+
+Final files appear in:
+
+Converted to .z assets\
+
 
 
 ---
 
-## 🧠 Best Practices
+### 5. Replace in Game Files
 
-✅ Always keep PNG as master  
-✅ Never edit compressed files  
-✅ Backup original assets  
-✅ Match original resolution  
-✅ Keep naming consistent  
+1. Back up original files
+2. Replace `.z` files with new ones
+3. Keep original filenames
+4. Test offline first
 
----
-
-## ⚠️ Legal Notice
-
-- This project is for educational and modding purposes only.
-- Original game files are not included.
-- You are responsible for complying with game and platform terms.
 
 ---
 
-## 📈 Future Plans
+## Batch Processing
 
-- One-click GUI exporter
-- Automatic repacking
-- Texture preview system
-- Cross-platform scripts
-- Mod installer support
+To extract multiple files:
 
----
+Run_tool\batch_extraction.bat
 
-## 🤝 Contributing
 
-Contributions are welcome!
+To convert multiple PNG files:
 
-If you improve scripts, automation, or documentation, feel free to submit a pull request.
+Run_tool\export_universal.bat
+Run_tool\png_to_game_ready.bat
+
+
 
 ---
 
-## 📬 Support
+## File Rules
+
+Important:
+
+✔ Do NOT change resolutions  
+✔ Keep original names  
+✔ Preserve alpha channels  
+✔ Do not resize textures  
+✔ Always keep backups  
+
+
+Wrong formats may cause crashes.
+
+
+---
+
+## Troubleshooting
 
 See:
 
-Support.txt
+- `Support.txt`
+- `README.txt`
+- `Directory.txt`
 
+Common fixes:
 
-Or open an issue on GitHub.
+- Check tool paths
+- Verify Python installation
+- Confirm PNG folder location
+- Use original `.z` files only
+
 
 ---
 
-## ⭐ Credits
+## Limitations
 
-Created by the RR3 modding community.
+- iOS support is limited
+- Some formats are device-specific
+- Not all textures are editable
+- Encrypted files cannot be extracted
 
-Special thanks to:
-- Noesis
+
+---
+
+## Compatibility
+
+Tested On:
+
+✔ Windows 10  
+✔ Windows 11  
+
+Not Supported:
+
+✘ Linux  
+✘ macOS  
+
+
+---
+
+## Legal Disclaimer
+
+This project is for educational and modding purposes only.
+
+All game assets belong to their respective owners.
+
+Use at your own risk.
+
+
+---
+
+## Credits
+
 - AMD Compressonator
-- PVRTexTool
+- Noesis
+- PowerVR Tools
 - Python
+- Open Source Community
+
 
 ---
 
-Enjoy modding! 🚀
+## Author
+
+Created by **RETR0**
+
+If you use this project, please credit the author.
