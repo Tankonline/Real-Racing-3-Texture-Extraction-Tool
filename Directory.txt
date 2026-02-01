@@ -1,0 +1,86 @@
+=================================================
+        RR3 TEXTURE TOOLS – DIRECTORY
+=================================================
+
+Root Folder: RR3 Texture tools
+|
+
+│   Directory.txt      - Folder structure overview
+│   README.txt         - Main user guide
+│   Support.txt        - Help & troubleshooting
+│
+├── extracted_dds
+│   └── sprites_0.etc.dds     - Example extracted file
+│
+├── Original files
+│   └── (Store original .z files here)
+│
+├── output_dds
+│   └── (Recompressed DDS output)
+│
+├── output_z
+│   └── (Recompressed .z output)
+│
+├── png_edit
+│   └── (PNG files for editing)
+│
+├── Run_tool
+│   │
+│   ├── run.bat                - Single file extractor
+│   ├── batch_extraction.bat   - Batch folder extractor
+│   │
+│   └── files
+│       └── (Optional working folder)
+│
+└── Tools
+    │
+    ├── AMD Compressor
+    │   └── CompressonatorGUI_x64_4.5.52.exe
+    │
+    ├── noesisv4474             - Texture preview/export
+    │   ├── Noesis.exe
+    │   ├── Noesis64.exe
+    │   ├── plugins
+    │   ├── optionalplugins
+    │   └── scenes
+    │
+    ├── Paint.NET
+    │   └── paint.net.5.1.11.install.anycpu.web.exe
+    │
+    ├── PvrTexTool
+    │   └── PVRTexToolSetup-2025_R2.msi
+    │
+    ├── Python
+    │   └── python-3.14.2-amd64.exe
+    │
+    └── Zlib
+        ├── decompress.py           - Basic extractor (legacy)
+        ├── go-zlib-tool-windows-x86_64.exe
+        └── Universal.py            - Main extraction engine
+
+
+-------------------------------------------------
+FOLDER PURPOSE SUMMARY
+-------------------------------------------------
+
+Original files   → Store original .z files
+Run_tool         → Extraction launchers
+Tools/Zlib       → Core extraction scripts
+extracted_dds    → Extracted DDS output
+png_edit         → Editable PNG files
+output_dds       → Final DDS output
+output_z         → Final compressed output
+
+
+-------------------------------------------------
+MAIN ENTRY POINTS
+-------------------------------------------------
+
+Single file extraction:
+Run_tool\run.bat
+
+Batch extraction:
+Run_tool\batch_extraction.bat
+
+
+=================================================

@@ -1,0 +1,206 @@
+=================================================
+        RR3 TEXTURE TOOLS – SUPPORT
+=================================================
+
+This file provides help and solutions for common
+problems when using the RR3 Texture Tools package.
+
+
+-------------------------------------------------
+BEFORE ASKING FOR HELP
+-------------------------------------------------
+
+Please check the following first:
+
+[ ] Python is installed
+[ ] You are using run.bat or batch_extraction.bat
+[ ] The file/folder is inside RR3 Texture tools
+[ ] File name is typed correctly
+[ ] No quotation marks are used
+
+
+-------------------------------------------------
+COMMON PROBLEMS & SOLUTIONS
+-------------------------------------------------
+
+
+1) ERROR: File not found
+
+Cause:
+- File is not inside project folder
+- File name is wrong
+- Wrong extension
+
+Fix:
+- Put file in "Original files"
+- Check spelling
+- Use: tree /f
+
+
+-------------------------------------------------
+
+2) "Python is not recognized"
+
+Cause:
+- Python not installed
+- PATH not set
+
+Fix:
+- Install from Tools\Python
+- Enable "Add to PATH"
+- Restart PC
+
+
+-------------------------------------------------
+
+3) No files extracted (Batch mode)
+
+Cause:
+- Folder contains no .z files
+- Wrong folder path
+
+Fix:
+- Check folder contents
+- Make sure files end with .z
+- Try single-file mode first
+
+
+-------------------------------------------------
+
+4) Output file is corrupted or empty
+
+Cause:
+- File is damaged
+- Unsupported format
+- Incomplete compression
+
+Fix:
+- Re-extract from game
+- Try different file
+- Open in Noesis/PVRTexTool
+
+
+-------------------------------------------------
+
+5) Image colours are inverted
+
+Cause:
+- Channel order mismatch
+- Format conversion issue
+
+Fix:
+- Convert to ARGB_8888
+- Open in Paint.NET
+- Adjust curves if needed
+
+
+-------------------------------------------------
+
+6) Noesis cannot preview file
+
+Cause:
+- Unsupported format
+- Missing header
+- Corrupted file
+
+Fix:
+- Try PVRTexTool
+- Try Compressonator
+- Re-extract
+
+
+-------------------------------------------------
+
+7) Batch extraction is very slow
+
+Cause:
+- Large number of files
+- Slow drive
+
+Fix:
+- Use SSD if possible
+- Close background apps
+- Run in smaller batches
+
+
+-------------------------------------------------
+TOOL-SPECIFIC ISSUES
+-------------------------------------------------
+
+
+AMD Compressonator
+-----------------
+- Run as Administrator
+- Use PNG input
+- Check resolution (power of 2)
+
+
+Noesis
+------
+- Use Noesis64.exe
+- Keep plugins updated
+- Run from its folder
+
+
+PVRTexTool
+----------
+- Reinstall if broken
+- Use GUI mode first
+- Export as PNG
+
+
+-------------------------------------------------
+ADVANCED TROUBLESHOOTING
+-------------------------------------------------
+
+If standard fixes fail:
+
+1) Open CMD in RR3 Texture tools
+2) Run manually:
+
+   python Tools\Zlib\Universal.py yourfile.z
+
+3) Read error output
+4) Copy error text
+5) Ask ChatGPT for help
+
+
+-------------------------------------------------
+BEST PRACTICES
+-------------------------------------------------
+
+✔ Always backup originals
+✔ Do not overwrite files
+✔ Test on small samples
+✔ Keep folders organised
+✔ Document changes
+
+
+-------------------------------------------------
+REPORTING A BUG
+-------------------------------------------------
+
+When reporting issues, include:
+
+- File name
+- Folder path
+- Error message
+- Tool used
+- Screenshot (if possible)
+
+Incomplete reports may be ignored.
+
+
+-------------------------------------------------
+DISCLAIMER
+-------------------------------------------------
+
+This toolkit is provided for educational and
+modding purposes only.
+
+Use responsibly.
+The author is not responsible for data loss
+or corrupted game files.
+
+
+=================================================
