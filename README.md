@@ -16,34 +16,6 @@ It provides automated `.z` decompression, format conversion, batch processing, a
 - ✅ Organized folder structure
 - ✅ Beginner-friendly documentation
 
----
-
-## 📁 Folder Structure
-
-RR3 Texture Tools/
-│
-├── universal_assets/
-│ ├── master_png/
-│ ├── android/
-│ ├── ios/
-│ └── pc/
-│
-├── Run_tool/
-│ ├── run.bat
-│ └── batch_extraction.bat
-│
-├── Tools/
-│ ├── AMD Compressor
-│ ├── Noesis
-│ ├── PVRTexTool
-│ └── Python
-│
-├── Directory.txt
-├── README.txt
-└── Support.txt
-
-
----
 
 ## ⚙️ Requirements
 
