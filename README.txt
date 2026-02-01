@@ -1,221 +1,215 @@
 =================================================
-        RR3 TEXTURE TOOLS – USER GUIDE
+RR3 TEXTURE TOOLS – USER GUIDE
 =================================================
 
-This toolkit allows you to extract, edit, and
-recompress Real Racing 3 texture files.
+Author: RETR0
+Project: RR3 Texture Tools
 
-It supports both:
-
-• Single-file extraction
-• Batch folder extraction
-
-
--------------------------------------------------
-SUPPORTED FILE TYPES
--------------------------------------------------
-
-The tool works with compressed files such as:
-
-- .dds.z
-- .etc.dds.z
-- .pvr.z
-- .ptc.pvr.z
-- .rgb.pvr.z
-- Other zlib-compressed formats
+Purpose:
+This toolset allows you to extract, edit, convert,
+and repack Real Racing 3 texture assets into
+game-ready .z files.
 
 
 -------------------------------------------------
 REQUIREMENTS
 -------------------------------------------------
 
-1) Windows PC
-2) Python 3.x or newer
-3) RR3 Texture Tools package
+Before using this tool, make sure these are installed:
 
-Make sure Python is installed before use.
+✔ AMD Compressonator CLI
+✔ Noesis
+✔ PVRTexTool CLI
+✔ Python 3
+✔ Zlib Scripts
 
-
--------------------------------------------------
-FOLDER STRUCTURE
--------------------------------------------------
-
-RR3 Texture tools
-│
-├── Run_tool
-│   ├── run.bat              (Single file tool)
-│   └── batch_extract.bat    (Batch tool)
-│
-├── Tools
-│   └── Zlib
-│       └── Universal.py     (Extractor engine)
-│
-├── Original files           (Store .z files here)
-├── extracted_dds
-├── png_edit
-├── output_dds
-└── output_z
+All tools must be placed in the Tools folder.
 
 
 -------------------------------------------------
-SINGLE FILE EXTRACTION
+BASIC WORKFLOW
 -------------------------------------------------
 
-Use this mode to extract one file at a time.
+This tool follows a simple pipeline:
 
-1) Place your .z file anywhere inside
-   "RR3 Texture tools"
-
-2) Open:
-   Run_tool → run.bat
-
-3) Type ONLY the file name
-
-   Example:
-   sprites_0.etc.dds.z
-
-4) Press ENTER
-
-5) The extracted file will be saved
-   next to the original file
+1) Extract → 2) Convert → 3) Edit → 4) Rebuild → 5) Install
 
 
 -------------------------------------------------
-BATCH EXTRACTION (FOLDER MODE)
+STEP 1 – EXTRACT GAME FILES
 -------------------------------------------------
 
-Use this mode to extract many files at once.
+Place original .z files in:
 
-1) Place all .z files inside a folder
+Run_tool/
 
-   Example:
-   C:\RR3_Dump\Textures
+Run:
 
-2) Open:
-   Run_tool → batch_extract.bat
+run.bat
 
-3) Paste the FULL folder path
-
-   Example:
-   C:\RR3_Dump\Textures
-
-4) Press ENTER
-
-5) The tool will:
-
-   - Scan the folder
-   - Find all .z files
-   - Extract them
-   - Create an "extracted" folder
-   - Save all output inside it
-
-
-Example result:
-
-Textures\
-   ui.z
-   menu.z
-   cars.z
-   extracted\
-      ui
-      menu
-      cars
+This removes zlib compression.
 
 
 -------------------------------------------------
-OPENING EXTRACTED FILES
+STEP 2 – CONVERT TO PNG
 -------------------------------------------------
 
-After extraction, use these tools:
+Open extracted files using:
 
-• Noesis – Preview and export
-• PVRTexTool – PVR textures
-• Paint.NET – PNG editing
-• Compressonator – ETC/DDS encoding
+- Noesis
+- PVRTexTool
 
+Export them as PNG.
 
-Recommended workflow:
+Save them into:
 
-.z → Extract → DDS/PVR → PNG → Edit → Recompress
-
-
--------------------------------------------------
-BACKUP SYSTEM
--------------------------------------------------
-
-If an output file already exists, the tool
-automatically creates a backup:
-
-filename.dds → filename.dds.bak
-
-This prevents data loss.
+Run_tool/PNG_Universal/
 
 
 -------------------------------------------------
-PERFORMANCE & LIMITS
+STEP 3 – EDIT TEXTURES
 -------------------------------------------------
 
-• No file limit (practically unlimited)
-• Files processed one at a time
-• Stable for large batches
+Edit PNG files using:
 
-Limits depend on:
+- Paint.NET
+- GIMP
+- Photoshop
 
-- Disk space
-- File size
-- System speed
+Rules:
 
-
--------------------------------------------------
-TROUBLESHOOTING
--------------------------------------------------
-
-If file is not found:
-- Check spelling
-- Check extension
-- Make sure file is inside project folder
-
-If Python errors appear:
-- Reinstall Python
-- Enable "Add to PATH"
-
-If output is broken:
-- File may be corrupted
-- Try another tool
-- Re-extract game data
+✔ Do NOT resize
+✔ Do NOT rename
+✔ Keep alpha channel
+✔ Keep same format
 
 
 -------------------------------------------------
-ADVANCED USERS
+STEP 4 – EXPORT UNIVERSAL ASSETS (OPTIONAL)
 -------------------------------------------------
 
-Universal.py supports:
+Run:
 
-python Universal.py input.z
-python Universal.py input.z output_folder
+export_universal.bat
 
-You may customise the script for special formats.
-Use ChatGPT for assistance.
+This creates:
+
+- Android textures
+- PC textures
+
+Used for testing and previewing.
+
+
+-------------------------------------------------
+STEP 5 – BUILD GAME FILES
+-------------------------------------------------
+
+Run:
+
+png_to_game_ready.bat
+
+This converts:
+
+PNG → DDS → ZLIB
+
+Final files are placed in:
+
+Converted to .z assets/
+
+
+-------------------------------------------------
+STEP 6 – INSTALL MOD
+-------------------------------------------------
+
+Copy the generated .z files back into
+the Real Racing 3 game directory.
+
+Replace the original files.
+
+
+-------------------------------------------------
+BATCH FILES
+-------------------------------------------------
+
+run.bat
+ → Extracts .z files
+
+batch_extraction.bat
+ → Batch extractor
+
+export_universal.bat
+ → Platform exports
+
+png_to_game_ready.bat
+ → Creates game-ready files
+
+
+-------------------------------------------------
+USING PYTHON SCRIPTS
+-------------------------------------------------
+
+Manual usage (advanced):
+
+Unpack:
+python Universal.py file.z
+
+Pack:
+python pack_zlib.py file.dds
+
+
+-------------------------------------------------
+COMMON ERRORS
+-------------------------------------------------
+
+"File not found"
+ → Wrong folder
+
+"No valid zlib blocks"
+ → Already unpacked
+
+"Invalid format"
+ → Wrong codec
+
+"CLI not found"
+ → Tool missing
+
+"No output"
+ → No PNG files found
 
 
 -------------------------------------------------
 BEST PRACTICES
 -------------------------------------------------
 
-✔ Always keep backups
-✔ Work on copies
-✔ Test small batches first
-✔ Keep filenames unique
-✔ Organise folders
+✔ Always back up original files
+✔ Work on copies only
+✔ Test offline
+✔ Keep naming identical
+✔ Verify sizes
 
 
 -------------------------------------------------
-DISCLAIMER
+LEGAL NOTICE
 -------------------------------------------------
 
-This toolkit is for educational and
-modding purposes only.
+For educational and personal modding only.
 
-Use responsibly.
+You are responsible for how this tool is used.
 
-=================================================
+Do not use for cheating or online abuse.
+
+
+-------------------------------------------------
+CREDITS
+-------------------------------------------------
+
+AMD Compressonator
+Noesis
+PowerVR Tools
+Python
+ChatGPT
+
+
+-------------------------------------------------
+END OF README
+-------------------------------------------------

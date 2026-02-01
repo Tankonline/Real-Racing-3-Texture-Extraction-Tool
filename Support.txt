@@ -1,206 +1,288 @@
 =================================================
-        RR3 TEXTURE TOOLS – SUPPORT
+RR3 TEXTURE TOOLS – SUPPORT & TROUBLESHOOTING
 =================================================
 
-This file provides help and solutions for common
-problems when using the RR3 Texture Tools package.
+Author: RETR0
+Project: RR3 Texture Tools
 
 
 -------------------------------------------------
-BEFORE ASKING FOR HELP
+ABOUT THIS FILE
 -------------------------------------------------
 
-Please check the following first:
-
-[ ] Python is installed
-[ ] You are using run.bat or batch_extraction.bat
-[ ] The file/folder is inside RR3 Texture tools
-[ ] File name is typed correctly
-[ ] No quotation marks are used
+This document contains help, troubleshooting,
+and solutions for common problems when using
+RR3 Texture Tools.
 
 
 -------------------------------------------------
-COMMON PROBLEMS & SOLUTIONS
+CONTACT & COMMUNITY
 -------------------------------------------------
 
+If you experience issues:
 
-1) ERROR: File not found
+1) Re-read README.txt
+2) Check Directory.txt
+3) Verify tool setup
+4) Test with one file first
 
-Cause:
-- File is not inside project folder
-- File name is wrong
-- Wrong extension
+If problems continue, document:
+
+✔ Error message
+✔ Screenshot
+✔ File name
+✔ Tool used
+✔ Step where it failed
+
+
+-------------------------------------------------
+INSTALLATION PROBLEMS
+-------------------------------------------------
+
+Problem:
+"compressonatorcli.exe not found"
 
 Fix:
-- Put file in "Original files"
-- Check spelling
-- Use: tree /f
+Make sure AMD Compressor CLI is located in:
+
+Tools\AMD Compressor CLI\compressonatorcli-4.5.52-win64\
 
 
--------------------------------------------------
-
-2) "Python is not recognized"
-
-Cause:
-- Python not installed
-- PATH not set
+Problem:
+"PVRTexToolCLI.exe not found"
 
 Fix:
-- Install from Tools\Python
-- Enable "Add to PATH"
-- Restart PC
+Place it inside:
+
+Tools\PvrTexTool CLI\
 
 
--------------------------------------------------
-
-3) No files extracted (Batch mode)
-
-Cause:
-- Folder contains no .z files
-- Wrong folder path
+Problem:
+"python is not recognized"
 
 Fix:
-- Check folder contents
-- Make sure files end with .z
-- Try single-file mode first
+Install Python and enable "Add to PATH"
+OR use full python path in .bat files.
 
 
 -------------------------------------------------
+EXTRACTION ERRORS
+-------------------------------------------------
 
-4) Output file is corrupted or empty
+Problem:
+"No valid zlib blocks found"
 
 Cause:
-- File is damaged
-- Unsupported format
-- Incomplete compression
+File is already unpacked.
 
 Fix:
-- Re-extract from game
-- Try different file
-- Open in Noesis/PVRTexTool
+Use original .z file only.
 
 
--------------------------------------------------
-
-5) Image colours are inverted
+Problem:
+"Decompression failed"
 
 Cause:
-- Channel order mismatch
-- Format conversion issue
+Corrupted or wrong file.
 
 Fix:
-- Convert to ARGB_8888
-- Open in Paint.NET
-- Adjust curves if needed
+Re-extract from game.
 
 
 -------------------------------------------------
+CONVERSION ERRORS
+-------------------------------------------------
 
-6) Noesis cannot preview file
+Problem:
+"Invalid format specified"
 
 Cause:
-- Unsupported format
-- Missing header
-- Corrupted file
+Wrong compression flag.
 
 Fix:
-- Try PVRTexTool
-- Try Compressonator
-- Re-extract
+Use supported formats only:
+ETC2 (Android)
+BC3 (PC)
 
 
--------------------------------------------------
-
-7) Batch extraction is very slow
+Problem:
+"No output files created"
 
 Cause:
-- Large number of files
-- Slow drive
+No PNG files found.
 
 Fix:
-- Use SSD if possible
-- Close background apps
-- Run in smaller batches
+Check:
+
+Run_tool\PNG_Universal\
 
 
 -------------------------------------------------
-TOOL-SPECIFIC ISSUES
+PACKING ERRORS
 -------------------------------------------------
 
+Problem:
+".z file not created"
 
-AMD Compressonator
------------------
-- Run as Administrator
-- Use PNG input
-- Check resolution (power of 2)
+Cause:
+DDS file missing or Python error.
 
+Fix:
+Check:
 
-Noesis
-------
-- Use Noesis64.exe
-- Keep plugins updated
-- Run from its folder
+output_dds\
+Tools\Zlib\pack_zlib.py
 
 
-PVRTexTool
-----------
-- Reinstall if broken
-- Use GUI mode first
-- Export as PNG
+Problem:
+".z file crashes game"
 
+Cause:
+Wrong resolution or format.
 
--------------------------------------------------
-ADVANCED TROUBLESHOOTING
--------------------------------------------------
-
-If standard fixes fail:
-
-1) Open CMD in RR3 Texture tools
-2) Run manually:
-
-   python Tools\Zlib\Universal.py yourfile.z
-
-3) Read error output
-4) Copy error text
-5) Ask ChatGPT for help
+Fix:
+Keep original size and alpha.
 
 
 -------------------------------------------------
-BEST PRACTICES
+IOS PLATFORM NOTES
 -------------------------------------------------
 
-✔ Always backup originals
-✔ Do not overwrite files
-✔ Test on small samples
-✔ Keep folders organised
-✔ Document changes
+Important:
+
+iOS support is limited.
+
+Real Racing 3 iOS uses:
+
+- PVR / PVRTC
+- Metal formats
+- Device-specific compression
+
+Currently:
+
+✔ Android supported
+✔ PC supported
+⚠ iOS experimental / unsupported
+
+iOS assets may require:
+
+PVRTexTool advanced settings
+Manual encoding
+MacOS tools
 
 
 -------------------------------------------------
-REPORTING A BUG
+PERFORMANCE ISSUES
 -------------------------------------------------
 
-When reporting issues, include:
+Problem:
+Conversion is slow
 
-- File name
-- Folder path
-- Error message
-- Tool used
-- Screenshot (if possible)
+Fix:
+Close other programs.
+Use SSD storage.
+Process fewer files.
 
-Incomplete reports may be ignored.
+
+Problem:
+Tool freezes
+
+Fix:
+Wait 1–2 minutes.
+Large textures take time.
+
+
+-------------------------------------------------
+FILE MANAGEMENT ISSUES
+-------------------------------------------------
+
+Problem:
+Files overwrite each other
+
+Fix:
+Do not rename outputs.
+Process one mod at a time.
+
+
+Problem:
+Missing files
+
+Fix:
+Restore from backup.
+
+
+-------------------------------------------------
+SAFETY & BACKUPS
+-------------------------------------------------
+
+ALWAYS:
+
+✔ Back up original game files
+✔ Keep unmodified copies
+✔ Store mods separately
+✔ Test offline first
+
+
+-------------------------------------------------
+COMPATIBILITY
+-------------------------------------------------
+
+Tested On:
+
+✔ Windows 10
+✔ Windows 11
+
+Not Tested:
+
+✘ Linux
+✘ MacOS
+
+
+-------------------------------------------------
+REPORTING BUGS
+-------------------------------------------------
+
+When reporting bugs, include:
+
+1) Tool version
+2) Windows version
+3) Error text
+4) Screenshot
+5) Input file
+6) Output file
+
+
+Example:
+
+"png_to_game_ready.bat fails on sprites_0.png
+with error 'Invalid format'"
 
 
 -------------------------------------------------
 DISCLAIMER
 -------------------------------------------------
 
-This toolkit is provided for educational and
-modding purposes only.
+This tool is provided "as is".
 
-Use responsibly.
-The author is not responsible for data loss
-or corrupted game files.
+No warranty.
+
+Use at your own risk.
+
+You are responsible for any
+game modifications.
 
 
-=================================================
+-------------------------------------------------
+CREDITS
+-------------------------------------------------
+
+AMD Compressonator
+Noesis
+PowerVR Tools
+Python
+Open Source Community
+
+
+-------------------------------------------------
+END OF SUPPORT FILE
+-------------------------------------------------

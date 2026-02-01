@@ -1,86 +1,76 @@
 =================================================
-        RR3 TEXTURE TOOLS – DIRECTORY
+RR3 TEXTURE TOOLS – DIRECTORY STRUCTURE
 =================================================
 
-Root Folder: RR3 Texture tools
-|
-
-│   Directory.txt      - Folder structure overview
-│   README.txt         - Main user guide
-│   Support.txt        - Help & troubleshooting
+Root Folder
+│
+├── Directory.txt
+├── README.txt
+├── Support.txt
+│
+├── Converted to .z assets
+│   └── sprites_0.dds.z
 │
 ├── extracted_dds
-│   └── sprites_0.etc.dds     - Example extracted file
+│   └── sprites_0.etc.dds
 │
 ├── Original files
-│   └── (Store original .z files here)
 │
 ├── output_dds
-│   └── (Recompressed DDS output)
+│   └── sprites_0.dds
 │
 ├── output_z
-│   └── (Recompressed .z output)
 │
 ├── png_edit
-│   └── (PNG files for editing)
 │
 ├── Run_tool
+│   ├── batch_extraction.bat
+│   ├── export_universal.bat
+│   ├── png_to_game_ready.bat
+│   ├── run.bat
+│   ├── sprites_0.rgb.pvr.z
 │   │
-│   ├── run.bat                - Single file extractor
-│   ├── batch_extraction.bat   - Batch folder extractor
-│   │
-│   └── files
-│       └── (Optional working folder)
+│   └── PNG_Universal
+│       └── sprites_0.png
 │
-└── Tools
+├── Tools
+│   ├── AMD Compressor
+│   │   └── CompressonatorGUI_x64_4.5.52.exe
+│   │
+│   ├── AMD Compressor CLI
+│   │   └── compressonatorcli-4.5.52-win64
+│   │       └── compressonatorcli.exe
+│   │
+│   ├── noesisv4474
+│   │   └── Noesis64.exe
+│   │
+│   ├── Paint.NET
+│   │   └── paint.net.5.1.11.install.anycpu.web.exe
+│   │
+│   ├── PvrTexTool
+│   │   └── PVRTexToolSetup-2025_R2.msi
+│   │
+│   ├── PvrTexTool CLI
+│   │   └── PVRTexToolCLI.exe
+│   │
+│   ├── Python
+│   │   └── python-3.14.2-amd64.exe
+│   │
+│   └── Zlib
+│       ├── decompress.py
+│       ├── pack_zlib.py
+│       └── Universal.py
+│
+└── universal_assets
+    ├── android
+    │   └── sprites_0_etc2.dds
     │
-    ├── AMD Compressor
-    │   └── CompressonatorGUI_x64_4.5.52.exe
+    ├── ios
     │
-    ├── noesisv4474             - Texture preview/export
-    │   ├── Noesis.exe
-    │   ├── Noesis64.exe
-    │   ├── plugins
-    │   ├── optionalplugins
-    │   └── scenes
-    │
-    ├── Paint.NET
-    │   └── paint.net.5.1.11.install.anycpu.web.exe
-    │
-    ├── PvrTexTool
-    │   └── PVRTexToolSetup-2025_R2.msi
-    │
-    ├── Python
-    │   └── python-3.14.2-amd64.exe
-    │
-    └── Zlib
-        ├── decompress.py           - Basic extractor (legacy)
-        ├── go-zlib-tool-windows-x86_64.exe
-        └── Universal.py            - Main extraction engine
+    └── pc
+        └── sprites_0_bc3.dds
 
 
--------------------------------------------------
-FOLDER PURPOSE SUMMARY
--------------------------------------------------
-
-Original files   → Store original .z files
-Run_tool         → Extraction launchers
-Tools/Zlib       → Core extraction scripts
-extracted_dds    → Extracted DDS output
-png_edit         → Editable PNG files
-output_dds       → Final DDS output
-output_z         → Final compressed output
-
-
--------------------------------------------------
-MAIN ENTRY POINTS
--------------------------------------------------
-
-Single file extraction:
-Run_tool\run.bat
-
-Batch extraction:
-Run_tool\batch_extraction.bat
-
-
+=================================================
+END OF DIRECTORY LIST
 =================================================
