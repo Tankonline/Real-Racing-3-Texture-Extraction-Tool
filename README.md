@@ -1,268 +1,168 @@
-# RR3 Texture Tools
+# 🏎️ Real Racing 3 Texture Tools
 
-An all-in-one toolkit for extracting, editing, converting, and repacking Real Racing 3 texture assets.
+A complete toolkit for extracting, editing, converting, and repacking Real Racing 3 texture assets.
 
-This tool allows you to:
-- Extract `.z` compressed assets
-- Convert textures to PNG
-- Edit textures
-- Rebuild game-ready files
-- Export universal assets for Android and PC
-
-Designed for Windows users.
-
+This toolset allows you to go from original `.z` game files → editable `.png` → game-ready assets → back into the game.
 
 ---
 
-## Features
+## ✨ Features
 
-✔ Extract `.z` compressed game files  
-✔ Convert DDS / PVR textures to PNG  
-✔ Edit textures easily  
-✔ Repack PNG → DDS → ZLIB  
-✔ Generate Android & PC universal assets  
-✔ Batch processing support  
-✔ Automated tools using `.bat` scripts  
-
-
----
-
-## Supported Platforms
-
-| Platform | Status |
-|----------|---------|
-| Android  | Supported (ETC2) |
-| PC       | Supported (BC3) |
-| iOS      | Experimental / Limited |
-
-
-iOS uses PVRTC/PVR formats and may require manual conversion.
-
+- Extract `.z` texture files
+- Convert DDS ↔ PNG for editing
+- Export universal assets (Android & PC)
+- Repack textures into `.z` format
+- Batch processing support
+- Automatic folder organisation
+- Built-in Compressonator, Noesis, and Zlib tools
 
 ---
 
-## Folder Overview
+## 📁 Folder Structure
 
-See `Directory.txt` for the full project structure.
+See `Directory.txt` for the full file layout.
 
-Main working folders:
+Important folders:
 
-- `Run_tool/` → All main batch files
-- `PNG_Universal/` → Put editable PNG files here
-- `Converted to .z assets/` → Final game-ready files
-- `Tools/` → Required third-party software
-- `universal_assets/` → Exported platform textures
-
-
----
-
-## Requirements
-
-Before using this tool, make sure you have:
-
-- Windows 10 / 11
-- Python 3.10+
-- AMD Compressonator CLI
-- Noesis
-- PVRTexTool CLI (optional, for iOS)
-
-
-All required tools should be placed inside the `Tools/` folder.
-
+- `Run_tool/` → All main batch tools  
+- `PNG_Universal/` → Put edited PNG files here  
+- `Converted to .z assets/` → Final game-ready files  
+- `output_dds/` → Temporary DDS output  
+- `extracted_dds/` → Extracted textures  
+- `universal_assets/` → Platform-specific exports  
 
 ---
 
-## Setup
+## 🚀 Quick Start
 
-1. Download or clone this repository
-2. Extract to any folder
-3. Verify tools are inside `Tools/`
-4. Install Python (enable "Add to PATH")
-5. Open CMD in project folder
-6. Test with one file first
+### 1️⃣ Extract Game Textures
+Run:
 
-
----
-
-## Usage Guide
-
-### 1. Extract Game Files
-
-Use:
-
+```bat
 Run_tool\run.bat
-
+```
 
 or
 
+```bat
 Run_tool\batch_extraction.bat
+```
 
-
-This removes `.z` compression.
-
+This extracts `.z` files into readable formats.
 
 ---
 
-### 2. Convert to PNG
+### 2️⃣ Convert DDS to PNG (For Editing)
 
-Use Noesis or PVRTexTool to export extracted files to PNG.
+```bat
+Run_tool\dds_to_png.bat
+```
 
-Place edited PNG files into:
+Edit the PNG files using any image editor.
 
+---
+
+### 3️⃣ Export Universal Assets
+
+Put your edited PNG files into:
+
+```
 Run_tool\PNG_Universal\
+```
 
+Then run:
 
-
----
-
-### 3. Export Universal Assets
-
-Run:
-
+```bat
 Run_tool\export_universal.bat
-
+```
 
 This creates:
+- Android (ETC2)
+- PC (BC3)
 
-- Android → ETC2
-- PC → BC3
-
-Output goes to:
-
-universal_assets\
-
-
+versions.
 
 ---
 
-### 4. Convert PNG to Game-Ready Files
+### 4️⃣ Convert PNG Back to Game-Ready `.z`
 
-Run:
+After editing, run:
 
+```bat
 Run_tool\png_to_game_ready.bat
-
+```
 
 This converts:
 
-PNG → DDS → ZLIB
+PNG → DDS → ZLIB (.z)
 
 Final files appear in:
 
+```
 Converted to .z assets\
+```
 
-
-
----
-
-### 5. Replace in Game Files
-
-1. Back up original files
-2. Replace `.z` files with new ones
-3. Keep original filenames
-4. Test offline first
-
+These can be placed back into the game.
 
 ---
 
-## Batch Processing
+## 🛠️ Main Batch Tools
 
-To extract multiple files:
-
-Run_tool\batch_extraction.bat
-
-
-To convert multiple PNG files:
-
-Run_tool\export_universal.bat
-Run_tool\png_to_game_ready.bat
-
-
+| File | Purpose |
+|------|----------|
+| `run.bat` | Extract single `.z` file |
+| `batch_extraction.bat` | Extract multiple `.z` files |
+| `dds_to_png.bat` | Convert DDS → PNG |
+| `export_universal.bat` | Create Android & PC assets |
+| `png_to_game_ready.bat` | Repack PNG → `.z` |
 
 ---
 
-## File Rules
+## ⚠️ Important Notes
 
-Important:
-
-✔ Do NOT change resolutions  
-✔ Keep original names  
-✔ Preserve alpha channels  
-✔ Do not resize textures  
-✔ Always keep backups  
-
-
-Wrong formats may cause crashes.
-
-
----
-
-## Troubleshooting
-
-See:
-
-- `Support.txt`
-- `README.txt`
-- `Directory.txt`
-
-Common fixes:
-
-- Check tool paths
-- Verify Python installation
-- Confirm PNG folder location
-- Use original `.z` files only
-
-
----
-
-## Limitations
-
+- Always back up original game files
+- Use matching filenames when replacing assets
+- Incorrect formats may cause crashes
+- Android and PC formats are supported
 - iOS support is limited
-- Some formats are device-specific
-- Not all textures are editable
-- Encrypted files cannot be extracted
-
 
 ---
 
-## Compatibility
+## 📦 Requirements
 
-Tested On:
+- Windows 10/11
+- Python 3+
+- Compressonator CLI (Included)
+- Noesis (Included)
 
-✔ Windows 10  
-✔ Windows 11  
-
-Not Supported:
-
-✘ Linux  
-✘ macOS  
-
+All required tools are bundled in the `Tools` folder.
 
 ---
 
-## Legal Disclaimer
+## ❓ Troubleshooting
+
+If something does not work:
+
+- Check file paths
+- Make sure tools are installed correctly
+- Run `.bat` files as Administrator
+- See `Support.txt` for help
+
+---
+
+## 📜 Disclaimer
 
 This project is for educational and modding purposes only.
 
-All game assets belong to their respective owners.
-
-Use at your own risk.
-
+You are responsible for how you use these tools.
 
 ---
 
-## Credits
+## ⭐ Credits
 
 - AMD Compressonator
-- Noesis
-- PowerVR Tools
-- Python
-- Open Source Community
+- Noesis Tools
+- PVRTexTool
+- Python Zlib
 
-
----
-
-## Author
-
-Created by **RETR0**
-
-If you use this project, please credit the author.
+Developed for the RR3 modding community.
