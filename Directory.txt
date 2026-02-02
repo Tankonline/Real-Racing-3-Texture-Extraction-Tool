@@ -1,76 +1,108 @@
-=================================================
-RR3 TEXTURE TOOLS – DIRECTORY STRUCTURE
-=================================================
-
-Root Folder
-│
-├── Directory.txt
-├── README.txt
-├── Support.txt
-│
-├── Converted to .z assets
-│   └── sprites_0.dds.z
-│
-├── extracted_dds
-│   └── sprites_0.etc.dds
-│
-├── Original files
-│
-├── output_dds
-│   └── sprites_0.dds
-│
-├── output_z
-│
-├── png_edit
-│
-├── Run_tool
-│   ├── batch_extraction.bat
-│   ├── export_universal.bat
-│   ├── png_to_game_ready.bat
-│   ├── run.bat
-│   ├── sprites_0.rgb.pvr.z
-│   │
-│   └── PNG_Universal
-│       └── sprites_0.png
-│
-├── Tools
-│   ├── AMD Compressor
-│   │   └── CompressonatorGUI_x64_4.5.52.exe
-│   │
-│   ├── AMD Compressor CLI
-│   │   └── compressonatorcli-4.5.52-win64
-│   │       └── compressonatorcli.exe
-│   │
-│   ├── noesisv4474
-│   │   └── Noesis64.exe
-│   │
-│   ├── Paint.NET
-│   │   └── paint.net.5.1.11.install.anycpu.web.exe
-│   │
-│   ├── PvrTexTool
-│   │   └── PVRTexToolSetup-2025_R2.msi
-│   │
-│   ├── PvrTexTool CLI
-│   │   └── PVRTexToolCLI.exe
-│   │
-│   ├── Python
-│   │   └── python-3.14.2-amd64.exe
-│   │
-│   └── Zlib
-│       ├── decompress.py
-│       ├── pack_zlib.py
-│       └── Universal.py
-│
-└── universal_assets
-    ├── android
-    │   └── sprites_0_etc2.dds
-    │
-    ├── ios
-    │
-    └── pc
-        └── sprites_0_bc3.dds
+Real Racing 3 Texture Tools
+Directory Structure
+=========================
 
 
-=================================================
-END OF DIRECTORY LIST
-=================================================
+Root
+----
+
+Directory.txt
+README.txt
+Support.txt
+
+
+Main Folders
+------------
+
+Converted to .z assets
+→ Final repacked game-ready .z files
+
+extracted_dds
+→ Extracted DDS textures from game assets
+
+Original files
+→ Backup of original RR3 files (recommended)
+
+output_dds
+→ Temporary DDS files created during conversion
+
+output_z
+→ Temporary ZLIB output files
+
+png_edit
+→ Workspace for editing PNG textures
+
+
+Run_tool
+--------
+
+batch_extraction.bat
+→ Batch extract multiple .z files
+
+dds_to_png.bat
+→ Convert DDS files to PNG format
+
+export_universal.bat
+→ Export PNG files to Android & PC formats
+
+png_to_game_ready.bat
+→ Convert PNG → DDS → ZLIB (.z)
+
+run.bat
+→ Main extraction tool
+
+PNG_Universal
+→ Folder for universal PNG source files
+
+
+Tools
+-----
+
+AMD Compressor
+→ Compressonator GUI
+
+AMD Compressor CLI
+→ Command-line texture compressor
+
+PvrTexTool
+→ PowerVR texture tools installer
+
+PvrTexTool CLI
+→ PowerVR command-line converter
+
+Python
+→ Python installer
+
+Zlib
+→ ZLIB compression scripts and tools
+
+noesis
+→ Texture viewing and conversion tool
+
+Paint.NET
+→ Image editing software
+
+
+universal_assets
+----------------
+
+android
+→ ETC2 compressed textures (Android)
+
+ios
+→ Reserved / Experimental iOS output
+
+pc
+→ BC3 compressed textures (PC)
+
+
+----------------------------------
+Folder Workflow Summary
+----------------------------------
+
+Original Game Files  → Original files
+Extracted DDS        → extracted_dds
+Converted PNG        → PNG_Universal / png_edit
+Temporary DDS        → output_dds
+Final Z Files         → Converted to .z assets
+Universal Assets     → universal_assets

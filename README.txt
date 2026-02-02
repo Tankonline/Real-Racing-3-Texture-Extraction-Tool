@@ -1,215 +1,109 @@
-=================================================
-RR3 TEXTURE TOOLS – USER GUIDE
-=================================================
+Real Racing 3 Texture Tools
+==========================
 
-Author: RETR0
-Project: RR3 Texture Tools
+Version: Latest
+Author: Community Modding Toolkit
 
-Purpose:
-This toolset allows you to extract, edit, convert,
-and repack Real Racing 3 texture assets into
-game-ready .z files.
+----------------------------------
+Overview
+----------------------------------
 
+This toolkit allows you to extract, edit, convert, and repack
+Real Racing 3 texture files.
 
--------------------------------------------------
-REQUIREMENTS
--------------------------------------------------
+You can:
+- Extract .z files
+- Convert textures to PNG
+- Edit textures
+- Export universal assets
+- Rebuild game-ready files
 
-Before using this tool, make sure these are installed:
-
-✔ AMD Compressonator CLI
-✔ Noesis
-✔ PVRTexTool CLI
-✔ Python 3
-✔ Zlib Scripts
-
-All tools must be placed in the Tools folder.
+All major actions are handled using automated .bat files.
 
 
--------------------------------------------------
-BASIC WORKFLOW
--------------------------------------------------
+----------------------------------
+Requirements
+----------------------------------
 
-This tool follows a simple pipeline:
+- Windows 10/11
+- Python 3.x
+- Compressonator CLI
+- PVRTexTool CLI
+- Noesis (included)
 
-1) Extract → 2) Convert → 3) Edit → 4) Rebuild → 5) Install
 
-
--------------------------------------------------
-STEP 1 – EXTRACT GAME FILES
--------------------------------------------------
-
-Place original .z files in:
-
-Run_tool/
-
-Run:
+----------------------------------
+Main Tools
+----------------------------------
 
 run.bat
-
-This removes zlib compression.
-
-
--------------------------------------------------
-STEP 2 – CONVERT TO PNG
--------------------------------------------------
-
-Open extracted files using:
-
-- Noesis
-- PVRTexTool
-
-Export them as PNG.
-
-Save them into:
-
-Run_tool/PNG_Universal/
-
-
--------------------------------------------------
-STEP 3 – EDIT TEXTURES
--------------------------------------------------
-
-Edit PNG files using:
-
-- Paint.NET
-- GIMP
-- Photoshop
-
-Rules:
-
-✔ Do NOT resize
-✔ Do NOT rename
-✔ Keep alpha channel
-✔ Keep same format
-
-
--------------------------------------------------
-STEP 4 – EXPORT UNIVERSAL ASSETS (OPTIONAL)
--------------------------------------------------
-
-Run:
-
-export_universal.bat
-
-This creates:
-
-- Android textures
-- PC textures
-
-Used for testing and previewing.
-
-
--------------------------------------------------
-STEP 5 – BUILD GAME FILES
--------------------------------------------------
-
-Run:
-
-png_to_game_ready.bat
-
-This converts:
-
-PNG → DDS → ZLIB
-
-Final files are placed in:
-
-Converted to .z assets/
-
-
--------------------------------------------------
-STEP 6 – INSTALL MOD
--------------------------------------------------
-
-Copy the generated .z files back into
-the Real Racing 3 game directory.
-
-Replace the original files.
-
-
--------------------------------------------------
-BATCH FILES
--------------------------------------------------
-
-run.bat
- → Extracts .z files
+→ Extracts .z files
 
 batch_extraction.bat
- → Batch extractor
+→ Extracts multiple .z files
 
 export_universal.bat
- → Platform exports
+→ Converts PNG to Android/PC formats
 
 png_to_game_ready.bat
- → Creates game-ready files
+→ Converts PNG → DDS → ZLIB (.z)
 
 
--------------------------------------------------
-USING PYTHON SCRIPTS
--------------------------------------------------
+----------------------------------
+Basic Workflow
+----------------------------------
 
-Manual usage (advanced):
+1. Extract Game Files
+   - Use run.bat or batch_extraction.bat
 
-Unpack:
-python Universal.py file.z
+2. Convert to PNG
+   - Use Noesis or PVR tools
 
-Pack:
-python pack_zlib.py file.dds
+3. Edit PNG
+   - Use any image editor
 
+4. Universal Export (Optional)
+   - Use export_universal.bat
 
--------------------------------------------------
-COMMON ERRORS
--------------------------------------------------
+5. Repack for Game
+   - Use png_to_game_ready.bat
 
-"File not found"
- → Wrong folder
-
-"No valid zlib blocks"
- → Already unpacked
-
-"Invalid format"
- → Wrong codec
-
-"CLI not found"
- → Tool missing
-
-"No output"
- → No PNG files found
+6. Replace in Game Folder
 
 
--------------------------------------------------
-BEST PRACTICES
--------------------------------------------------
+----------------------------------
+Folders
+----------------------------------
 
-✔ Always back up original files
-✔ Work on copies only
-✔ Test offline
-✔ Keep naming identical
-✔ Verify sizes
+PNG_Universal
+→ Put edited PNG files here
 
+Converted to .z assets
+→ Final game-ready files
 
--------------------------------------------------
-LEGAL NOTICE
--------------------------------------------------
+universal_assets
+→ Android and PC formats
 
-For educational and personal modding only.
-
-You are responsible for how this tool is used.
-
-Do not use for cheating or online abuse.
+output_dds
+→ Temporary DDS files
 
 
--------------------------------------------------
-CREDITS
--------------------------------------------------
+----------------------------------
+Important Notice
+----------------------------------
 
-AMD Compressonator
-Noesis
-PowerVR Tools
-Python
-ChatGPT
+Always back up original RR3 files
+before replacing any assets.
+
+You use this tool at your own risk.
 
 
--------------------------------------------------
-END OF README
--------------------------------------------------
+----------------------------------
+Credits
+----------------------------------
+
+- AMD Compressonator
+- Noesis
+- PowerVR Tools
+- Zlib
+- Community Contributors

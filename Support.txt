@@ -1,288 +1,84 @@
-=================================================
-RR3 TEXTURE TOOLS – SUPPORT & TROUBLESHOOTING
-=================================================
+RR3 Texture Tools - Support
+==========================
 
-Author: RETR0
-Project: RR3 Texture Tools
 
+----------------------------------
+Common Issues
+----------------------------------
 
--------------------------------------------------
-ABOUT THIS FILE
--------------------------------------------------
+1. "File not found"
+- Check folder paths
+- Make sure files are in the correct folder
 
-This document contains help, troubleshooting,
-and solutions for common problems when using
-RR3 Texture Tools.
+2. "Invalid format"
+- Ensure Compressonator is installed correctly
+- Check tool paths in .bat files
 
+3. No output files
+- Verify PNG files exist
+- Run as Administrator
+- Check antivirus permissions
 
--------------------------------------------------
-CONTACT & COMMUNITY
--------------------------------------------------
+4. Script closes instantly
+- Open CMD manually
+- Run .bat from CMD to see errors
 
-If you experience issues:
 
-1) Re-read README.txt
-2) Check Directory.txt
-3) Verify tool setup
-4) Test with one file first
+----------------------------------
+Setup Problems
+----------------------------------
 
-If problems continue, document:
+If tools are not detected:
 
-✔ Error message
-✔ Screenshot
-✔ File name
-✔ Tool used
-✔ Step where it failed
+1. Check:
+   Tools\AMD Compressor CLI\
+   Tools\PvrTexTool CLI\
+   Tools\Zlib\
 
+2. Confirm .exe files exist
 
--------------------------------------------------
-INSTALLATION PROBLEMS
--------------------------------------------------
+3. Reinstall missing tools if needed
 
-Problem:
-"compressonatorcli.exe not found"
 
-Fix:
-Make sure AMD Compressor CLI is located in:
+----------------------------------
+Game Not Loading
+----------------------------------
 
-Tools\AMD Compressor CLI\compressonatorcli-4.5.52-win64\
+If RR3 crashes after replacing files:
 
+- Restore backup
+- Check file names match original
+- Verify compression format
+- Ensure correct .z packaging
 
-Problem:
-"PVRTexToolCLI.exe not found"
 
-Fix:
-Place it inside:
+----------------------------------
+Best Practices
+----------------------------------
 
-Tools\PvrTexTool CLI\
+- Always keep backups
+- Test one file at a time
+- Avoid overwriting originals
+- Keep folder structure intact
+- Read README.txt first
 
 
-Problem:
-"python is not recognized"
+----------------------------------
+Getting Help
+----------------------------------
 
-Fix:
-Install Python and enable "Add to PATH"
-OR use full python path in .bat files.
+If you need help:
 
+- Check README.txt
+- Review error messages
+- Open an issue on GitHub
+- Provide screenshots and logs
 
--------------------------------------------------
-EXTRACTION ERRORS
--------------------------------------------------
 
-Problem:
-"No valid zlib blocks found"
+----------------------------------
+Disclaimer
+----------------------------------
 
-Cause:
-File is already unpacked.
-
-Fix:
-Use original .z file only.
-
-
-Problem:
-"Decompression failed"
-
-Cause:
-Corrupted or wrong file.
-
-Fix:
-Re-extract from game.
-
-
--------------------------------------------------
-CONVERSION ERRORS
--------------------------------------------------
-
-Problem:
-"Invalid format specified"
-
-Cause:
-Wrong compression flag.
-
-Fix:
-Use supported formats only:
-ETC2 (Android)
-BC3 (PC)
-
-
-Problem:
-"No output files created"
-
-Cause:
-No PNG files found.
-
-Fix:
-Check:
-
-Run_tool\PNG_Universal\
-
-
--------------------------------------------------
-PACKING ERRORS
--------------------------------------------------
-
-Problem:
-".z file not created"
-
-Cause:
-DDS file missing or Python error.
-
-Fix:
-Check:
-
-output_dds\
-Tools\Zlib\pack_zlib.py
-
-
-Problem:
-".z file crashes game"
-
-Cause:
-Wrong resolution or format.
-
-Fix:
-Keep original size and alpha.
-
-
--------------------------------------------------
-IOS PLATFORM NOTES
--------------------------------------------------
-
-Important:
-
-iOS support is limited.
-
-Real Racing 3 iOS uses:
-
-- PVR / PVRTC
-- Metal formats
-- Device-specific compression
-
-Currently:
-
-✔ Android supported
-✔ PC supported
-⚠ iOS experimental / unsupported
-
-iOS assets may require:
-
-PVRTexTool advanced settings
-Manual encoding
-MacOS tools
-
-
--------------------------------------------------
-PERFORMANCE ISSUES
--------------------------------------------------
-
-Problem:
-Conversion is slow
-
-Fix:
-Close other programs.
-Use SSD storage.
-Process fewer files.
-
-
-Problem:
-Tool freezes
-
-Fix:
-Wait 1–2 minutes.
-Large textures take time.
-
-
--------------------------------------------------
-FILE MANAGEMENT ISSUES
--------------------------------------------------
-
-Problem:
-Files overwrite each other
-
-Fix:
-Do not rename outputs.
-Process one mod at a time.
-
-
-Problem:
-Missing files
-
-Fix:
-Restore from backup.
-
-
--------------------------------------------------
-SAFETY & BACKUPS
--------------------------------------------------
-
-ALWAYS:
-
-✔ Back up original game files
-✔ Keep unmodified copies
-✔ Store mods separately
-✔ Test offline first
-
-
--------------------------------------------------
-COMPATIBILITY
--------------------------------------------------
-
-Tested On:
-
-✔ Windows 10
-✔ Windows 11
-
-Not Tested:
-
-✘ Linux
-✘ MacOS
-
-
--------------------------------------------------
-REPORTING BUGS
--------------------------------------------------
-
-When reporting bugs, include:
-
-1) Tool version
-2) Windows version
-3) Error text
-4) Screenshot
-5) Input file
-6) Output file
-
-
-Example:
-
-"png_to_game_ready.bat fails on sprites_0.png
-with error 'Invalid format'"
-
-
--------------------------------------------------
-DISCLAIMER
--------------------------------------------------
-
-This tool is provided "as is".
-
-No warranty.
-
+This tool is unofficial.
+No responsibility for data loss.
 Use at your own risk.
-
-You are responsible for any
-game modifications.
-
-
--------------------------------------------------
-CREDITS
--------------------------------------------------
-
-AMD Compressonator
-Noesis
-PowerVR Tools
-Python
-Open Source Community
-
-
--------------------------------------------------
-END OF SUPPORT FILE
--------------------------------------------------
